@@ -1,17 +1,17 @@
-import React, { FC } from 'react';
-import { Player } from '../types';
+import React from 'react';
+import { Player } from '../../types';
 
-interface Props {
+type Props = {
   player: Player;
-}
+};
 
-const PlayerCard: FC<Props> = ({ player }) => {
+const PlayerCard: React.FC<Props> = ({ player }) => {
   return (
-    <div>
-      <h2>{player.name}</h2>
+    <div className="player-card">
+      <h3>{player.name}</h3>
       <p>Score: {player.score}</p>
+      <p>Handicap: {player.handicap}</p>
       <p>Rank: {player.rank}</p>
-      <button onClick={() => player.incrementScore()}>Increment Score</button>
     </div>
   );
 };

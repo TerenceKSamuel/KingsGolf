@@ -1,7 +1,7 @@
-export interface Player {
-    id: number;
-    name: string;
-    score: number;
-    rank: number;
-    incrementScore: () => void;
-  }
+export type Player = {
+  id: number;
+  name: string;
+  score: number;
+  handicap: number;
+  rank: number;
+};
