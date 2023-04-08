@@ -1,23 +1,29 @@
 import React from 'react';
-import PlayerRow from './PlayerRow';
+import { Player } from '../../types';
 
-const Leaderboard = ({ players }) => {
-  // Sort players by score
-  players.sort((a, b) => a.score - b.score);
+type Props = {
+  players: Player[];
+};
 
+const Leaderboard: React.FC<Props> = ({ players }) => {
   return (
-    <div>
+    <div className="leaderboard">
       <h2>Leaderboard</h2>
       <table>
         <thead>
           <tr>
-            <th>Player</th>
+            <th>Rank</th>
+            <th>Name</th>
             <th>Score</th>
           </tr>
         </thead>
         <tbody>
           {players.map((player, index) => (
-            <PlayerRow key={player.id} player={player} position={index + 1} />
+            <tr key={player.id}>
+              <td>{index + 1}</td>
+              <td>{player.name}</td>
+              <td>{player.score}</td>
+            </tr>
           ))}
         </tbody>
       </table>
